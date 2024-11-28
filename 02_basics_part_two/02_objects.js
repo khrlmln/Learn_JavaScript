@@ -21,14 +21,14 @@ console.log(userDetails["Full Name"]);
 // print a symbol
 console.log(userDetails[mySym]);
 
-// change object values
+// update object values
 userDetails.email = "admin@mlnkhrl.com";
 console.log(userDetails["email"]);
 
 // prevent updating objejct values
 // Object.freeze(userDetails); // commented right now to access function inside object
 
-// doesn't change object values
+// doesn't change object values after freezing object
 // userDetails.email = "admin@milankharel.com.np";
 // console.log(userDetails["email"]); // commented because object isn't freezed
 
@@ -46,7 +46,7 @@ console.log(userDetails.greetingTwo());
 // singleton object declaration
 const singletonObject = new Object();
 
-// non singleton object
+// non singleton object (object literals)
 const nonSingletonObject = {};
 nonSingletonObject.id = 123;
 nonSingletonObject.name = "Mee Lan";
@@ -54,7 +54,7 @@ nonSingletonObject.isLoggedIn = false;
 
 console.log(nonSingletonObject);
 
-// object inside an object
+// object inside an object (Nested Object)
 const anotherUsers = {
   email: "someone@example.com ",
   fullname: {
@@ -80,8 +80,8 @@ const merObj2 = {
   salary: 250000,
 };
 
-// const mergedObj = Object.assign({}, merObj1, merObj2);
-const mergedObj = { ...merObj1, ...merObj2 };
+// const mergedObj = Object.assign({}, merObj1, merObj2);  // using object constructor
+const mergedObj = { ...merObj1, ...merObj2 }; // using spread operator
 console.log(mergedObj);
 
 // extract keys and values from object
@@ -94,19 +94,25 @@ console.log(nonSingletonObject.hasOwnProperty("name")); // returns true because 
 
 console.log(nonSingletonObject.hasOwnProperty("email")); // returns false because we don't have a property called email
 
-// object de-structuring
+// Declaring an object called 'course' with properties courseName, price, and courseInstructor.
 const course = {
-  courseName: "Introduction to JavaScript",
-  price: "1000",
-  courseInstructor: "Youtube",
+  courseName: "Introduction to JavaScript", // Name of the course
+  price: "1000", // Price of the course
+  courseInstructor: "Youtube", // Instructor of the course
 };
 
-console.log(course.courseInstructor);
+// Method 1: Accessing object property directly using dot notation
+// We print the value of the 'courseInstructor' property by using dot notation.
+console.log(course.courseInstructor); // Output: "Youtube"
 
-// another method
+// Method 2: Object Destructuring to extract property
+// We use object destructuring to extract the 'courseInstructor' property from the 'course' object.
+// This creates a variable called 'courseInstructor' that directly holds the value from the object.
 const { courseInstructor } = course;
-console.log(courseInstructor);
+console.log(courseInstructor); // Output: "Youtube"
 
-// we can rename a value also
+// Method 3: Renaming the property during destructuring
+// We can also rename the extracted variable while destructuring.
+// Here, the 'courseInstructor' property is renamed to 'Instructor' when extracted.
 const { courseInstructor: Instructor } = course;
-console.log(Instructor);
+console.log(Instructor); // Output: "Youtube"
