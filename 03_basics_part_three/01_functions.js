@@ -25,3 +25,46 @@ console.log(loginUserMessage("khrlmln")); // Expected output: "khrlmln logged in
 
 // Calling 'loginUserMessage' without any arguments (username is undefined), which triggers the error message
 loginUserMessage(); // Expected output: "Please enter a username"
+
+// The function calculateCartPrice takes multiple price values using the rest operator (...) and returns them as an array.
+function calculateCartPrice(...price) {
+  return price;
+}
+
+console.log(calculateCartPrice(100, 452, 741)); // Output: [100, 452, 741]
+
+// pass an object to a function.
+// create a 'users' object and pass it to the handleObject function, which accesses the properties of the object.
+const users = {
+  userName: "Milan Kharel",
+  age: 25,
+  email: "milan@example.com",
+};
+
+function handleObject(anyobject) {
+  return `username is ${anyobject.userName}, age is ${anyobject.age}, email is ${anyobject.email}`;
+}
+
+console.log(handleObject(users)); // Output: username is Milan Kharel, age is 25, email is milan@example.com
+
+// The function can also directly accept an object without needing a separate variable.
+console.log(
+  handleObject({
+    userName: "Mee",
+    age: 30,
+    email: "mee@mee.com",
+  })
+);
+
+// pass and work with an array in a function.
+// create an array 'myArray' and pass it to the handleArray function, which returns the value at index 2.
+const myArray = [100, 456, 789, 741];
+
+function handleArray(getArray) {
+  return getArray[2]; // Returns the element at the 2nd index (789 in this case)
+}
+
+console.log(handleArray(myArray)); // Output: 789
+
+// The function can also directly accept an array without needing a separate variable.
+console.log(handleArray([14, 88, 74])); // Output: 74
